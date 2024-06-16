@@ -5,10 +5,10 @@
   "description": "backend for my portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "dev": "nodemon index.js",
-    "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:ui": "rm -rf dist && cd ../frontend && npm install && npm run build && cp -r dist ../backend",
+    "start": "node index.js",
+"test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "devesh",
   "license": "ISC",
