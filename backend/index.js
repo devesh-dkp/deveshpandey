@@ -1,7 +1,17 @@
 require('dotenv').config()
-const express = require('express')
+const path = require('path');
+const express = require('express');
 
-const app = express()
+const app = express();
+
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// All other GET requests not handled before will return our `index.html` file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 const baseImageURL = "https://github.com/devesh-dkp/devesh/blob/main/images/";
 let projects = 
 [
@@ -36,7 +46,6 @@ let projects =
     };
   });
   
-app.use(express.static('dist'));
 
 const cors = require('cors')
 app.use(cors());
