@@ -9,9 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "predeploy": "npm run build",
-    "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@emailjs/browser":"^3.4.0",

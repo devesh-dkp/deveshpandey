@@ -6,7 +6,10 @@ const Hero = () => {
     <div className="fixed w-full flex items-center justify-center h-screen">
       <div
         className="absolute inset-0 bg-no-repeat bg-center bg-contain z-0 rounded-lg"
-        style={{ backgroundImage: 'url("../static/bg.png")' }}
+        style={{
+          backgroundImage:
+            'url("https://github.com/devesh-dkp/deveshpandey/blob/main/frontend/static/bg.png?raw=true")',
+        }}
       ></div>
 
       <div className="relative max-w-4xl p-10 text-right z-10 bg-white bg-opacity-60 rounded-lg shadow-lg">

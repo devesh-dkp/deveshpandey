@@ -3,26 +3,24 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    let timer;
-    if (isOpen) {
-      timer = setTimeout(() => {
-        setIsOpen(false);
-      }, 8000); // 10 seconds
-    }
-    return () => clearTimeout(timer);
-  }, [isOpen]);
 
   return (
     <div className="fixed top-0 t-0 m-4 z-10">
       <button
         className="bg-blue-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
+        onMouseOver={() => {
+          if (!isOpen) setIsOpen(true);
+        }}
       >
         Menu
       </button>
       {isOpen && (
-        <div className="mt-2 w-64 bg-white rounded-lg shadow-lg">
+        <div
+          className="mt-2 w-64 bg-white rounded-lg shadow-lg"
+          onMouseOver={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
           <ul className="flex flex-col p-4 space-y-2">
             <li>
               <Link to="/" className="text-blue-500 hover:underline">
