@@ -1,34 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Hero = () => {
+  const bgUrl =
+    "https://github.com/devesh-dkp/devesh/blob/main/bg.png?raw=true";
   return (
-    <div className="fixed w-full flex items-center justify-center h-screen">
-      <div
-        className="absolute inset-0 bg-no-repeat bg-center bg-contain z-0 rounded-lg"
-        style={{
-          backgroundImage:
-            'url("https://github.com/devesh-dkp/deveshpandey/blob/main/frontend/static/bg.png?raw=true")',
-        }}
-      ></div>
-
-      <div className="relative max-w-4xl p-10 text-right z-10 bg-white bg-opacity-60 rounded-lg shadow-lg">
-        <h1 className="text-5xl font-bold text-black">Welcome</h1>
-        <p className="mt-4 text-2xl text-gray-800">
+    <div
+      className="relative flex justify-end items-center h-screen bg-cover bg-center mb-10 bg-white"
+      style={{ backgroundImage: `url(${bgUrl})` }}
+    >
+      <div className="max-w-lg w-full mx-10 px-8 py-2 bg-white bg-opacity-75 text-right">
+        <div className="text-2xl font-bold mb-4">Welcome</div>
+        <p className="text-lg text-gray-700 mb-4">
           I'm a UG student at IIT Patna, majoring in mathematics and computing.
           To see my projects go to{" "}
           <Link
             to="/projects"
-            className="text-blue-600 hover:text-blue-800 underline"
+            className="text-blue-800 hover:text-blue-600 font-medium no-underline"
           >
             Projects
           </Link>
           . I am interested in web development and competitive programming. I
-          also have an understanding of AI & Machine Learning.
+          like reading documentations, new stories,etc. I also have an
+          understanding of AI & Machine Learning.
         </p>
         <Link
           to="/about"
-          className="mt-8 inline-flex items-center px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white text-xl font-bold rounded-lg"
+          className="text-blue-500 mt-4 hover:text-blue-700 font-medium no-underline"
         >
           Know More
         </Link>
