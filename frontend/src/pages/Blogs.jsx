@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -29,19 +28,8 @@ const Blogs = ({ blogs }) => {
               </h2>
             </Link>
             <div className="text-sm text-gray-600 mb-4">
-              {blog.author && <span>By {blog.author} | </span>}
+              {blog.category && <span>{blog.category} | </span>}
               {blog.date && <span>{blog.date}</span>}
-              <div className="mt-4">
-                {blog.tags &&
-                  blog.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-gray-700 bg-gray-200 last:mr-0 mr-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-              </div>
             </div>
             <div className="prose">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>

@@ -26,7 +26,6 @@ export const CommentForm = () => {
       message: e.target[2].value,
     };
     emailjs.init(z);
-    console.log(x, y, z, inputf);
     emailjs.send(x, y, inputf).then(
       () => {
         console.log("SUCCESS!");

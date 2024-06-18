@@ -44,7 +44,6 @@ const BlogPost = ({ blogs }) => {
       <div className="max-w-3xl mx-auto bg-white p-8 shadow-lg rounded-lg mt-8 mb-40">
         <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
         <div className="text-sm text-gray-600 mb-4">
-          {blog.author && <span>By {blog.author} | </span>}
           {blog.category && <span>{blog.category} | </span>}
           {blog.date && <span>{blog.date}</span>}
         </div>

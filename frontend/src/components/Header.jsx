@@ -7,12 +7,12 @@ function Header() {
     { to: "/projects", text: "PROJECTS" },
     { to: "/about", text: "ABOUT" },
     { to: "/contact", text: "CONTACT" },
-    { to: "/blogs", text: "BLOGS" },
+    { to: "/blogs", text: "BLOG" },
     { to: "/comment", text: "COMMENT" },
   ];
   let len = links.length;
   return (
-    <div className="bg-white w-full mb-4">
+    <div className="bg-white w-full">
       <header
         className="flex justify-center items-center h-24 text-5xl font-bold bg-white text-black w-full"
         style={{ fontFamily: "kingthings Foundation" }}

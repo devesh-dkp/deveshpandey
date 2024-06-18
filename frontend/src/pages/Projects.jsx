@@ -15,7 +15,7 @@ const Projects = () => {
     <>
       <div className="bg-cover bg-center flex mb-10 bg-white py-2">
         <div className="max-w-6xl mx-10 px-8 text-center">
-          <h1 className="font-crimsontext text-xl text-black ml-20">
+          <h1 className="font-crimsontext text-xl text-black ml-20 mt-4">
             These are some projects, I have worked on. You can find more on my{" "}
             <a
               href="https://github.com/devesh-dkp"
