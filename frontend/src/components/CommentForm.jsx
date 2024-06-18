@@ -1,7 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import Footer from "./Footer";
-import Header from "./Header";
 
 export const CommentForm = () => {
   const form = useRef();
