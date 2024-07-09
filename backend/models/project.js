@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema({
   title: {
     type: String,
-    minLength:3,
-    required: true
+    minLength: 3,
+    required: true,
   },
   description: String,
   link: String,
-  image: String
+  image: String,
+  livelink: String,
+  tag: String,
 });
 
 projectSchema.set('toJSON', {

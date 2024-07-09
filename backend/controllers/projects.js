@@ -25,10 +25,12 @@ projectsRouter.post('/', (req, res) => {
     im = baseImageURL + im + ".jpg?raw=true";
 
     const project = new Project({
-        title: body.title,
-        description: body.description,
-        link: body.link,
-        image: im
+      title: body.title,
+      description: body.description,
+      link: body.link,
+      image: im,
+      livelink: body.livelink,
+      tag: body.tag,
     });
 
     project.save().then(savedProject => {
