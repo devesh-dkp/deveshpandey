@@ -1,6 +1,6 @@
 import React from "react";
 
-const Project = ({ title, description, link, image }) => {
+const Project = ({ title, description, link, image, livelink }) => {
   return (
     <div className="bg-white p-4 shadow-lg rounded-lg mb-4 mx-auto max-w-4xl flex items-center">
       <div className="flex-shrink-0 mr-4">
@@ -22,6 +22,19 @@ const Project = ({ title, description, link, image }) => {
           >
             View Project
           </a>
+          {livelink && (
+            <>
+              <span className="mx-2">|</span>
+              <a
+                href={livelink}
+                className="text-blue-800 hover:red-500 no-underline cursor-pointer"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Live Demo
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>
