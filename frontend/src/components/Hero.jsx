@@ -1,24 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
-import Header from "./Header";
 
 const Hero = () => {
-  const bgUrl =
-    "https://github.com/devesh-dkp/devesh/blob/main/bg.png?raw=true";
+  const profileUrl =
+    "https://github.com/devesh-dkp/devesh/blob/main/images/profile.jpg?raw=true";
   return (
-    <div
-      className="relative flex justify-end items-center h-screen bg-cover bg-center bg-white"
-      style={{ backgroundImage: `url(${bgUrl})` }}
-    >
-      <div className="max-w-lg w-full mx-10 px-8 py-5 bg-white bg-opacity-75 text-right">
-        <div className="text-2xl font-bold mb-4">Welcome</div>
-        <p className="text-lg text-gray-700 mb-4">
+    <div className="flex flex-col mx-auto md:flex-row items-center justify-center my-12 md:my-24 px-4 md:px-0 justify-between w-11/12 md:w-3/4">
+      <div className="w-1/2 md:w-1/4">
+        <img
+          src={profileUrl}
+          alt="Devesh Kumar Pandey"
+          // make a rectangle shape with rounded corners and thick borders
+          className="rounded-lg border-4 border-black-200 object-center shadow-lg md:w-128 md:h-128"
+        />
+      </div>
+      <div className="w-3/4 md:w-1/2">
+        <h1 className="text-3xl font-bold text-blue-800">
+          Hi, I'm Devesh Kumar Pandey
+        </h1>
+        <p className="text-lg text-gray-600 mt-4">
           I'm a UG student at IIT Patna, majoring in mathematics and computing.
           To see my projects go to{" "}
           <Link
             to="/projects"
-            className="text-blue-800 hover:text-blue-600 font-medium no-underline"
+            className="text-blue-500 hover:text-blue-700 font-medium no-underline"
           >
             Projects
           </Link>
@@ -28,7 +33,7 @@ const Hero = () => {
         </p>
         <Link
           to="/about"
-          className="text-blue-500 mt-4 hover:text-blue-700 font-medium no-underline"
+          className="text-white bg-blue-800 px-4 py-2 rounded-lg mt-4 inline-block"
         >
           Know More
         </Link>
