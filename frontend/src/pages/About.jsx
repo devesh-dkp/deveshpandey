@@ -2,38 +2,65 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-white flex justify-center items-center p-4 py-2 mt-0">
-      <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8">
-        <h1 className="text-3xl font-bold text-center mb-6">About Me</h1>
-        <p className="text-lg text-gray-700 mb-4">
-          Hello! I'm Devesh Kumar Pandey, a passionate developer with a strong
-          background in Mathematics and Computing from IIT Patna. I've worked on
-          a variety of projects including financial analytics, e-commerce
-          applications, and web development platforms. My skills span across
-          multiple programming languages and technologies, including C++,
-          Python, JavaScript, React.js, Node.js, and more.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          In addition to my technical expertise, I've achieved significant
-          milestones in competitive programming with notable ratings on
-          platforms like Codeforces, Codechef, and Leetcode. I have also been an
-          active participant in the Facebook Hacker Cup.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          Beyond academics and projects, I've contributed to the community as a
-          mentor and have taken part in various extracurricular activities. My
-          journey in tech is driven by continuous learning and a deep curiosity
-          to solve complex problems.
-        </p>
-        <p className="text-lg text-blue-500 text-center mt-4">
-          <a
-            href="https://devesh-dkp.github.io/devesh/images/devesh_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Check out my resume
-          </a>
-        </p>
+    <div className="container mx-auto px-4 py-8 max-w-3xl">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">About Me</h1>
+
+      <p className="text-lg text-gray-600 mb-6">
+        I'm Devesh Kumar Pandey, a student in the unique 5-year integrated
+        dual-degree program offered jointly by IIT Patna and IIM Mumbai. My
+        academic journey combines bachelor's in Mathematics and Computing with
+        advanced business education in Operations and Supply Chain Management.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        Education Timeline
+      </h2>
+      <ul className="list-none space-y-4 mb-6">
+        <li className="flex items-center">
+          <div className="bg-blue-500 rounded-full h-4 w-4 mr-4"></div>
+          <div>
+            <p className="font-semibold">2024 - 2026 (Expected)</p>
+            <p>MBA in Operations and Supply Chain Management, IIM Mumbai</p>
+          </div>
+        </li>
+        <li className="flex items-center">
+          <div className="bg-blue-500 rounded-full h-4 w-4 mr-4"></div>
+          <div>
+            <p className="font-semibold">2021 - 2025</p>
+            <p>BS in Mathematics and Computing, IIT Patna</p>
+          </div>
+        </li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        Skills & Interests
+      </h2>
+      <p className="text-lg text-gray-600 mb-6">
+        My technical skills include Python, R, and SQL, with a focus on data
+        structures, algorithms, and machine learning. I'm passionate about
+        applying these skills to solve complex business problems, particularly
+        in supply chain optimization and operations management.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        Career Goals
+      </h2>
+      <p className="text-lg text-gray-600 mb-6">
+        I aim to leverage my unique blend of technical and managerial skills to
+        drive innovation in technology-driven industries. My goal is to bridge
+        the gap between advanced analytics and strategic business decisions,
+        particularly in the realm of supply chain and operations management.
+      </p>
+
+      <div className="mt-8">
+        <a
+          href="https://devesh-dkp.github.io/devesh/images/devesh_resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+        >
+          Check out my resume
+        </a>
       </div>
     </div>
   );

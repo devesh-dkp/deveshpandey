@@ -28,7 +28,7 @@ function Header() {
                 <li key={index}>
                   <Link
                     onClick={() => (window.location.href = link.to)}
-                    className="text-2xl text-indigo-800	font-semibold hover:text-red-500"
+                    className="text-xl text-indigo-800	font-semibold hover:text-red-500"
                   >
                     {link.text}
                   </Link>
