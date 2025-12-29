@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 const projectsRouter = require('./controllers/projects');
 const blogsRouter = require('./controllers/blogs');
+const commentRouter = require('./controllers/comment');
 const middleware = require('./middleware');
 const mongoose = require('mongoose')
 
@@ -30,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/api/projects', projectsRouter);
 // all blogs api
 app.use('/api/blogs', blogsRouter);
+// comment email api
+app.use('/api/comment', commentRouter);
 app.use('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });

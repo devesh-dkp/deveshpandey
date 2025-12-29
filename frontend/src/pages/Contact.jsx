@@ -16,8 +16,8 @@ const contacts = [
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/devesh_pandey2/",
-    place: "devesh_pandey2",
+    link: "https://www.instagram.com/devesh.dkp/",
+    place: "devesh.dkp",
     symbol: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
   },
   {

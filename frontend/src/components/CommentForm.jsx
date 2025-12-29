@@ -1,114 +1,103 @@
 import React, { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+import commentService from "../services/comment";
 
-export const CommentForm = () => {
-  const form = useRef();
+const CommentForm = () => {
+  const formRef = useRef(null);
   const [response, setResponse] = useState(null);
-  // set response message to null after 5 seconds
-  useEffect(() => {
-    let timer;
-    if (response) {
-      timer = setTimeout(() => {
-        setResponse(null);
-      }, 8000); // 10 seconds
-    }
-    return () => clearTimeout(timer);
-  }, [response]);
-  const sendEmail = (e) => {
-    console.log(e);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const sendComment = async (e) => {
     e.preventDefault();
-    const x = "service_4ybzndx";
-    const z = "ZFjyNhuFj-YIoLfo_";
-    const y = "template_cbbligs";
+    setIsSubmitting(true);
+
     const inputf = {
       name: e.target[0].value,
       email: e.target[1].value,
       message: e.target[2].value,
     };
-    emailjs.init(z);
-    emailjs.send(x, y, inputf).then(
-      () => {
-        console.log("SUCCESS!");
-        setResponse("Message Sent Successfully!");
-      },
-      (error) => {
-        console.log("FAILED...", error.text);
-        setResponse("Message Failed to Send!");
-      }
-    );
-    e.target.reset();
+
+    try {
+      await commentService.postComment(inputf);
+      setResponse("Message Sent Successfully!");
+      setIsSubmitted(true);
+      formRef.current.reset();
+    } catch (error) {
+      console.error(error);
+      setResponse("Message Failed to Send!");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const resetForm = () => {
+    setIsSubmitted(false);
+    setResponse(null);
   };
 
   return (
-    <>
-      <div className="flex justify-center items-center py-8 bg-white">
-        <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-4 text-center">Contact Me</h2>
-          <form ref={(form) => form} onSubmit={sendEmail}>
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Name
-              </label>
+    <div className="flex justify-center items-center py-12 bg-gray-50">
+      <div className="w-full max-w-lg bg-white rounded-xl shadow-md p-6">
+
+        {!isSubmitted ? (
+          <>
+            <h2 className="text-2xl font-semibold text-center mb-6">
+              Send a Message
+            </h2>
+
+            <form ref={formRef} onSubmit={sendComment} className="space-y-5">
               <input
-                type="text"
-                id="name"
                 name="name"
-                placeholder="Your Name"
-                className="px-4 py-2 rounded-lg border border-gray-300"
+                type="text"
                 required
+                placeholder="Full Name"
+                className="w-full rounded-lg border px-4 py-2"
               />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email
-              </label>
               <input
-                type="email"
-                id="email"
                 name="email"
-                placeholder="your_email@example.com"
-                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+                type="email"
                 required
+                placeholder="Email Address"
+                className="w-full rounded-lg border px-4 py-2"
               />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Message
-              </label>
               <textarea
-                id="message"
                 name="message"
                 rows={5}
-                placeholder="Your message"
-                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1 w-full"
                 required
-              ></textarea>
+                placeholder="Your message..."
+                className="w-full rounded-lg border px-4 py-2 resize-none"
+              />
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </>
+        ) : (
+          /* ✅ Success State */
+          <div className="text-center py-10 space-y-6">
+            <div className="text-green-600 text-xl font-semibold">
+              ✅ Message Sent Successfully!
             </div>
+
+            <p className="text-gray-600">
+              Thank you for reaching out. I’ll get back to you shortly.
+            </p>
+
             <button
-              type="submit"
-              className="inline-flex items-center px-8 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              onClick={resetForm}
+              className="inline-flex justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
             >
-              {response === "Message Sent Successfully!" ? (
-                <p>Message Sent Successfully!</p>
-              ) : response === "Message Failed to Send!" ? (
-                <p>Message Failed to Send!</p>
-              ) : (
-                <p>Send Message</p>
-              )}
+              Send another message
             </button>
-          </form>
-        </div>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
